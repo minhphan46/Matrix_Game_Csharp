@@ -13,6 +13,9 @@ namespace LuyenTap
         public int xItem = 0;
         public int yItem = 0;
 
+        public int xGoad = DEFAULT_NUM_OF_SQUARE - 1;
+        public int yGoad = DEFAULT_NUM_OF_SQUARE - 1;
+
         public const int DEFAULT_SQUARE_HEIGHT = 50;
         public const int DEFAULT_SQUARE_WIDTH = 50;
 
@@ -98,7 +101,7 @@ namespace LuyenTap
                     }
                 }
 
-                if(xItem == _numOfSquare-1 && yItem == _numOfSquare - 1)
+                if(xItem == xGoad && yItem == yGoad)
                 {
                     DialogResult result = MessageBox.Show("YOU WIN");
                     if(result == DialogResult.OK)
@@ -106,7 +109,7 @@ namespace LuyenTap
                         xItem = 0;
                         yItem = 0;
                         _squares[xItem, yItem].Color = COLOR_ITEM;
-                        _squares[_numOfSquare - 1, _numOfSquare - 1].Color = COLOR_GOAD;
+                        _squares[xGoad, yGoad].Color = COLOR_GOAD;
                     }
                 }
             }
@@ -168,7 +171,7 @@ namespace LuyenTap
             {
                 _squares[item.Key, item.Value].Color = COLOR_WALL;
             }
-            _squares[_numOfSquare-1, _numOfSquare-1].Color = COLOR_GOAD;
+            _squares[xGoad, yGoad].Color = COLOR_GOAD;
         }
     }
 }
